@@ -27,8 +27,9 @@ while True:
         x,y,w,h = cv.boundingRect(con)
 
         #ignore very small noise
-        if w*h > 500:
+        if w * h > 500:
             cv.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+            cv.putText(frame,f"W: {w}px H: {h}px",(x,y -10),cv.FONT_HERSHEY_SIMPLEX,0.5,(0,255,0),2)
 
     # Display the resulting frame
     cv.imshow('object detection', frame)
